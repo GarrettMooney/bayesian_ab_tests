@@ -1,5 +1,5 @@
 library(Rcpp)
-sourceCpp('ab_test.cpp')
+sourceCpp('bayesian_ab_test.cpp')
 
 # alphas are successes+1, betas are failures+1
 probability_B_beats_A(3, 30, 5, 50)
