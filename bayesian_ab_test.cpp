@@ -14,7 +14,7 @@ double probability_B_beats_A(double alpha_a, double beta_a, double alpha_b, doub
 // [[Rcpp::export]]
 double probability_1_beats_2(double alpha_1, double beta_1, double alpha_2, double beta_2){
 	double total = 0.0;
-	for(int k = 0; k < alpha_2; ++k){
+	for(int k = 0; k < alpha_1; ++k){
 		total += exp(k * log(beta_1) + alpha_2 * log(beta_2) - (k + alpha_2) * log(beta_1 + beta_2) - log(k + alpha_2) - R::lbeta(k + 1, alpha_2));
 	}
 	return total;
