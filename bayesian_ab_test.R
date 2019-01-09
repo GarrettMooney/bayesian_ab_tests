@@ -14,9 +14,11 @@ data_list <- list(nA = nA, nB = nB, sA = sA, sB = sB)
 stan_samples <- stan(file = "binary_outcome_AB.stan", data = data_list)
 plot(stan_samples)
 posterior <- as.data.frame(stan_samples)
+sum(posterior$rate_diff >= 0)/length(posterior$rate_diff)
 sum(posterior$rate_diff < 0)/length(posterior$rate_diff)
 
 # alphas are successes+1, betas are failures+1
+1-probability_B_beats_A(nA+1, sA+1, nB+1, sB+1)
 probability_B_beats_A(nA+1, sA+1, nB+1, sB+1)
 
 # count data A/B ----
